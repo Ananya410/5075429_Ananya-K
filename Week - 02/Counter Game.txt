@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+bool isPowerOfTwo (uint64_t n)
+ {
+ return n && ((n & (n - 1)) == 0);
+}
+uint64_t nextLowerPowerOfTwo(uint64_t n) {
+    uint64_t p = 1;
+    while(p << 1 < n) p <<= 1;
+    return p;
+}
+const char* counterGame(uint64_t n) {
+    int moves = 0;
+    while(n != 1) {
+        if(isPowerOfTwo(n)) {
+        n >>= 1;
+        } else {
+         n -= nextLowerPowerOfTwo(n);
+        }
+        moves++;
+    }
+    return(moves % 2 == 1) ? "Louise" : "Richard";
+}
+int main() {
+    int t;
+    if (scanf("%d", &t) !=1 || t <=0) 
+    return 0;
+    while(t--) {
+        uint64_t n;
+        if(scanf("%llu",&n) !=1 || n == 0) 
+        return 0;
+        printf("%s\n",counterGame(n));
+    }
+    return 0;
+}

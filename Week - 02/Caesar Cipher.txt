@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <ctype.h>
+int main() {
+    int n,k;
+    if(scanf("%d",&n) != 1 || n <= 0)
+     return 0;
+    char str[n + 1];
+    if(scanf("%s",str) != 1)
+     return 0;
+    if(scanf("%d",&k) != 1 || k <0) 
+    return 0;
+    for(int i=0; str[i] !='\0';i++) {
+        char c = str[i];
+        if (islower(c)) {
+            str[i] = 'a' + (c - 'a' + k) % 26;
+        } else if(isupper(c)) {
+            str[i] = 'A' + (c - 'A' + k) % 26;
+        }
+    }
+    printf("%s\n",str);
+    return 0;
+}

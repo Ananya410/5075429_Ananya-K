@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main() {
+    char first[10005],second[10005];
+    if(scanf("%10000s %10000s",first, second) !=2) {
+        return 0;
+    }
+for(int k = 0; first[k] && second[k];k++) {
+        putchar(first[k] == second[k] ? '0' : '1');
+    }
+    putchar('\n');
+    return 0;
+}

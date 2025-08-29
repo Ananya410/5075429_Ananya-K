@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main(void) {
+    long long nums[5];
+    int c = 0;
+    while (c < 5 && scanf("%lld", &nums[c]) == 1) {
+        c++;
+    }
+    if(c != 5)
+     return 0;
+    long long minVal = nums[0], maxVal = nums[0], total = 0;
+    for (int j = 0; j < 5; ++j) {
+        if(nums[j] < minVal) minVal = nums[j];
+        if(nums[j] > maxVal) maxVal = nums[j];
+        total += nums[j];
+    }
+    long long minSum = total - maxVal;
+    long long maxSum = total - minVal;
+    printf("%lld %lld\n", minSum, maxSum);
+    return 0;
+}

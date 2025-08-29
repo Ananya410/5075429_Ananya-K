@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int cmpChar(const void *a, const void *b) {
+return (*(char *)a - *(char *)b);
+}
+int main() {
+    int t;
+    if (scanf("%d", &t) !=1 || t <=0)
+     return 0;
+
+    while(t--) {
+        int n;
+        if(scanf("%d", &n) !=1 || n<=0)
+         return 0;
+        char grid[n][n + 1];
+        for(int i = 0; i < n; i++) {
+            if(scanf("%s", grid[i]) !=1) 
+            return 0;
+            qsort(grid[i], n, sizeof(char),cmpChar);
+        }
+        int valid =1;
+        for(int col = 0; col < n && valid; col++) {
+            for(int row = 1; row < n; row++) {
+                if(grid[row][col] < grid[row - 1][col]) {
+                    valid = 0;
+                    break;
+                }
+            }
+        }
+
+        printf("%s\n",valid ? "YES" : "NO");
+    }
+    return 0;
+}

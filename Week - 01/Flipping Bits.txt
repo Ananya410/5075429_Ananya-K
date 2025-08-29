@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdint.h>
+int main() {
+    int cases;
+    if(scanf("%d", &cases) != 1 || cases <= 0) 
+    return 0;
+      for(int k = 0; k < cases;k++) {
+        unsigned int original;
+        if (scanf("%u", &original) != 1) 
+        return 0;
+        unsigned int mask =0xFFFFFFFF;
+        unsigned int inverted = mask ^ original;
+        printf("%u\n",inverted);
+    }
+    return 0;
+}

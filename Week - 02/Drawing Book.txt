@@ -1,0 +1,14 @@
+#include <stdio.h>
+int pageCount(int totalPages, int targetPage) {
+    int fromFront = targetPage / 2;
+    int fromBack = totalPages / 2 - targetPage / 2;
+    return fromFront < fromBack ? fromFront : fromBack;
+}
+int main() {
+    int n, p;
+    if (scanf("%d %d", &n, &p) !=2 || n <=0 || p<=0 || p>n) 
+    return 0;
+    int result = pageCount(n,p);
+    printf("%d\n",result);
+    return 0;
+}

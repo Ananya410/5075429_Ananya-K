@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdint.h>
+int main() {
+    uint64_t n;
+    if(scanf("%llu", &n) != 1) 
+    return 0;
+    if(n == 0) {
+ printf("1\n");
+        return 0;
+    }
+uint64_t temp = n;
+    int zero_count = 0;
+    while(temp > 0) {
+        if((temp & 1) == 0) 
+        zero_count++;
+        temp = temp >> 1;
+    }
+    uint64_t result = 1ULL << zero_count;
+    printf("%llu\n",result);
+    return 0;
+}

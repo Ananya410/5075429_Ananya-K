@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main(void) {
+    int totalCount;
+    if (scanf("%d", &totalCount) != 1 || totalCount <= 0) {
+        return 0;
+    }
+ int num;
+double positiveRatio = 0,negativeRatio = 0,zeroRatio = 0;
+for (int index = 0;index < totalCount;index++) {
+        if (scanf("%d", &num) != 1) {
+            return 0;
+        }
+        if(num > 0) {
+            positiveRatio++;
+        } else if(num < 0) {
+            negativeRatio++;
+        } else {
+            zeroRatio++;
+        }
+    }
+    printf("%0.6lf\n",positiveRatio/totalCount);
+    printf("%0.6lf\n",negativeRatio/totalCount);
+    printf("%0.6lf\n",zeroRatio/totalCount);
+  return 0;
+}

@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main() {
+    int totalSocks;
+    if(scanf("%d", &totalSocks) != 1 || totalSocks <= 0) 
+    return 0;
+    int colorCount[101] = {0};
+    for(int p =0; p <totalSocks;p++) {
+    int sockColor;
+    if(scanf("%d", &sockColor) !=1 || sockColor<0 || sockColor>100)
+     return 0;
+        colorCount[sockColor]++;
+    }
+    int totalPairs = 0;
+    for(int idx = 0; idx <= 100; idx++) {
+        totalPairs += colorCount[idx] >> 1; 
+    }
+    printf("%d\n",totalPairs);
+    return 0;
+}
